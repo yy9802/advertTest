@@ -12,7 +12,7 @@
 <body>
     <div id="top">
         <img src="images/loading.gif" class="lazyImg" alt="images/top1.png">
-       <video id="myVideo" controls width="100%" poster="images/begin.png" -webkit-playsinline webkit-playsinline playsinline="true" x5-video-player-type="h5">
+        <video id="myVideo" controls width="100%" poster="images/begin.png" -webkit-playsinline webkit-playsinline playsinline="true" x5-video-player-type="h5">
             <source src="video/video1.mp4" type='video/mp4'>
         </video>
     </div>
@@ -22,7 +22,6 @@
             <h2>第一步</h2>
             <text>第一步的详细内容</text>
             <div class="detailDiv">
-                <!-- <img src="images/loading.gif" style="width:20px"> -->
                 <img src="images/loading.gif" class="lazyImg" alt="images/spec1_1.gif">
             </div>
         </div>
@@ -42,12 +41,13 @@
         </div>
     </div>
     <script>
-        document.getElementById("myVideo").poster="/images/begin.png";
+        document.getElementById("myVideo").poster = "images/begin.png";
+
         function isInSight(el) { //是否在可视区
             const bound = el.getBoundingClientRect();
             //只考虑向下滚动
             const clientHeight = window.innerHeight;
-            return bound.top <= clientHeight + 50; //提前加载
+            return bound.top <= clientHeight + 100; //提前加载
         }
 
         let index = 0; //已经加载图片的index
