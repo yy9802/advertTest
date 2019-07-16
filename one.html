@@ -7,34 +7,72 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/base.css">
     <link rel="stylesheet" type="text/css" href="css/one.css">
-    <script src=""></script>
 </head>
 
 <body>
     <div id="top">
-        <img src="images/top1.png">
-        <video id="video" class="myVideo" controls="controls" width="100%">
-                <source src="video/video1.mp4" type='video/mp4'>
-                    </video>
+        <img src="images/loading.gif" class="lazyImg" alt="images/top1.png">
+        <video id="video" class="myVideo" controls="controls" width="100%" poster="images/begin.png" preload="auto" -webkit-playsinline webkit-playsinline playsinline="true">
+            <source src="video/video1.mp4" type='video/mp4'>
+        </video>
     </div>
 
     <div id="content">
         <div class="detail">
             <h2>第一步</h2>
             <text>第一步的详细内容</text>
-            <img src="images/spec1_1.gif">
+            <div class="detailDiv">
+                <!-- <img src="images/loading.gif" style="width:20px"> -->
+                <img src="images/loading.gif" class="lazyImg" alt="images/spec1_1.gif">
+            </div>
         </div>
         <div class="detail">
             <h2>第二步</h2>
             <text>第二步的详细内容</text>
-            <img src="images/spec1_2.gif">
+            <div class="detailDiv">
+                <img src="images/loading.gif" class="lazyImg" alt="images/spec1_2.gif">
+            </div>
         </div>
         <div class="detail">
             <h2>第三步</h2>
             <text>第三步的详细内容</text>
-            <img src="images/spec1_3.gif">
+            <div class="detailDiv">
+                <img src="images/loading.gif" class="lazyImg" alt="images/spec1_3.gif">
+            </div>
         </div>
     </div>
+    <script>
+        function isInSight(el) { //是否在可视区
+            const bound = el.getBoundingClientRect();
+            //只考虑向下滚动
+            const clientHeight = window.innerHeight;
+            return bound.top <= clientHeight + 50; //提前加载
+        }
+
+        let index = 0; //已经加载图片的index
+        function checkImgs() {
+            const imgs = document.querySelectorAll('.lazyImg');
+            for (let i = index; i < imgs.length; i++) {
+                if (isInSight(imgs[i])) {
+                    loadImg(imgs[i]);
+                    index = i;
+                }
+            }
+        }
+
+        function loadImg(el) {
+            if (el.alt != '') {
+                const source = el.alt;
+                el.src = source;
+                el.alt = '';
+                setTimeout(() => {
+                    el.style.width = '100%'
+                }, 40)
+            }
+        }
+        window.onload = checkImgs;
+        window.onscroll = checkImgs;
+    </script>
 </body>
 
 </html>
