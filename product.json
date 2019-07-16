@@ -1,0 +1,28 @@
+  [{
+      "topImg": "images/top1.png",
+      "video": "video/video1.mp4",
+      "step1": "第一步",
+      "detail1": "第一步的详细内容",
+      "step2": "第二步",
+      "detail2": "第二步的详细内容",
+      "step3": "第三步",
+      "detail3": "第三步的详细内容"
+  }, {
+      "topImg": "images/top1.png",
+      "video": "video/video1.mp4",
+      "step1": "第一步2222",
+      "detail1": "第一步的详细内容2222",
+      "step2": "第二步22222",
+      "detail2": "第二步的详细内容22222",
+      "step3": "第三步2222",
+      "detail3": "第三步的详细内容22222"
+  }, {
+      "topImg": "images/top1.png",
+      "video": "video/video1.mp4",
+      "step1": "第一步33333",
+      "detail1": "第一步的详细内容3333",
+      "step2": "第二步333",
+      "detail2": "第二步的详细内容333",
+      "step3": "第三步333",
+      "detail3": "第三步的详细内容3333"
+  }]
